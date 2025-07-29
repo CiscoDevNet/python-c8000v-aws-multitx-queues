@@ -7,30 +7,28 @@ The user can specify the protocol parameter as "gre" or "tcp" or "udp" or any de
 
 How to create virtual environment:
 
-Upgrade to python 3.8.9 or higher
+*  Upgrade to python 3.8.9 or higher
+    - Check python version
+        - python3 --version
+*  Install pip if not yet installed
+    - curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+    - python3 get-pip.py
+*  Create virtual environment
+    - python3 -m venv c8kv-hash
+    - cd c8kv-hash
+    - source bin/activate
+    - git clone https://www-github.cisco.com/hntran/c8kv-aws-pmd-hash.git
+    - cd c8kv-aws-pmd-hash
+    - python3 -m pip install --upgrade pip
+    - pip install -r requirements.txt
+    - Run script for 17.7 and 17.8 release
+        - python3 c8kv_multitxq_hash.py --old_crc 1 --dest_network 192.168.1.0/24 --src_network 192.168.2.0/24
+        - python3 c8kv_multitxq_hash.py --old_crc 1 --ip_file test.txt
+    - Run script for 17.9 and later release
+        - python3 c8kv_multitxq_hash.py --dest_network 192.168.1.0/24 --src_network 192.168.2.0/24 --prot gre
+        - python3 c8kv_multitxq_hash.py --dest_network 192.168.1.0/24 --src_network 192.168.2.0/24 --prot udp --src_port 12346 --dst_port 12346 --unique_hash 1
+        - python3 c8kv_multitxq_hash.py --ip_file test.txt
 
-Check python version
-python3 --version
-Install pip if not yet installed
-
-curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-python3 get-pip.py
-Create virtual environment
-
-python3 -m venv c8kv-hash
-cd c8kv-hash
-source bin/activate
-git clone https://www-github.cisco.com/hntran/c8kv-aws-pmd-hash.git
-cd c8kv-aws-pmd-hash
-python3 -m pip install --upgrade pip
-pip install -r requirements.txt
-Run script for 17.7 and 17.8 release
-python3 c8kv_multitxq_hash.py --old_crc 1 --dest_network 192.168.1.0/24 --src_network 192.168.2.0/24
-python3 c8kv_multitxq_hash.py --old_crc 1 --ip_file test.txt
-Run script for 17.9 and later release
-python3 c8kv_multitxq_hash.py --dest_network 192.168.1.0/24 --src_network 192.168.2.0/24 --prot gre
-python3 c8kv_multitxq_hash.py --dest_network 192.168.1.0/24 --src_network 192.168.2.0/24 --prot udp --src_port 12346 --dst_port 12346 --unique_hash 1
-python3 c8kv_multitxq_hash.py --ip_file test.txt
-Get out of virtual environment
-
-deactivate
+*  Get out of virtual environment
+    - deactivate
+    
