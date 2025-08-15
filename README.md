@@ -1,7 +1,7 @@
 # PMD TXQ calculation
 The python file calculate hash index for PMD TXQ used in 17.7 and later release. The --old_crc will generate hash index based on 17.7 and 17.8 release with modulo 8 to match the supported PMD TXQ. Release 17.9 and later use modulo 12 without the --old_crc option matching the supported PMD TXQ.
 
-Refer to Cisco documentation for more details: 
+Refer to Cisco documentation for more details: https://www.cisco.com/c/en/us/support/docs/routers/sd-wan/224128-improve-throughput-on-catalyst-8000v.html
 
 The user can specify the protocol parameter as "gre" or "tcp" or "udp" or any decimal The ip_test.txt contain the following column dst, src, prot, dstport, srcport separate by a single space.
 
